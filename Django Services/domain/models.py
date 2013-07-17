@@ -14,9 +14,9 @@ class User(models.Model):
 class Description(models.Model):
 
 	isbn = models.IntegerField(primary_key = True)
-	name = models.CharField(max_length = 100)
+	title = models.CharField(max_length = 100)
 	author = models.CharField(max_length = 40)
-	ano = models.DateField(null = True)
+	year = models.DateField(null = True)
 
 class Book(models.Model):
 
