@@ -1,0 +1,66 @@
+package description;
+
+public class ApplicationProxy implements description.Application_PortType {
+  private String _endpoint = null;
+  private description.Application_PortType application_PortType = null;
+  
+  public ApplicationProxy() {
+    _initApplicationProxy();
+  }
+  
+  public ApplicationProxy(String endpoint) {
+    _endpoint = endpoint;
+    _initApplicationProxy();
+  }
+  
+  private void _initApplicationProxy() {
+    try {
+      application_PortType = (new description.Application_ServiceLocator()).getApplication();
+      if (application_PortType != null) {
+        if (_endpoint != null)
+          ((javax.xml.rpc.Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+        else
+          _endpoint = (String)((javax.xml.rpc.Stub)application_PortType)._getProperty("javax.xml.rpc.service.endpoint.address");
+      }
+      
+    }
+    catch (javax.xml.rpc.ServiceException serviceException) {}
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (application_PortType != null)
+      ((javax.xml.rpc.Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public description.Application_PortType getApplication_PortType() {
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType;
+  }
+  
+  public java.math.BigInteger add_description(Description.services.Description description) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.add_description(description);
+  }
+  
+  public Description.services.Description get_description_by_isbn(java.lang.String isbn) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.get_description_by_isbn(isbn);
+  }
+  
+  public Description.services.Description get_description_by_name(java.lang.String name) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.get_description_by_name(name);
+  }
+  
+  
+}

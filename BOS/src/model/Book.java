@@ -8,7 +8,7 @@ public class Book {
 	boolean status;
 		
 	public void setDescription(int isbn, String title, String author, Date year){
-		Description description = new Description(isbn, title, author, year);
+		Descriptions description = new Descriptions(isbn, title, author, year);
 	}
 	
 	public int getCollectionId() {
