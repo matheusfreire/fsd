@@ -1,0 +1,23 @@
+package controller;
+
+import java.math.BigInteger;
+
+import javax.xml.rpc.ServiceException;
+
+import loan.Application_PortType;
+import loan.Application_Service;
+import loan.Application_ServiceLocator;
+import loan.services.User;
+
+public class TestUserManager {
+
+	public static void main(String[] args) throws ServiceException {
+		BigInteger big = new BigInteger("1");
+		Application_Service service = new Application_ServiceLocator();
+		Application_PortType app = service.getApplication();
+		
+		User u = new User("Arthur", BIG, "arthurmde");
+
+	}
+
+}

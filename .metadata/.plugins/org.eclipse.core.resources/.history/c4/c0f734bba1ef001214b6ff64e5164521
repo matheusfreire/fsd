@@ -1,0 +1,35 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.BookCtrl;
+
+public class Main {
+
+	public void menu(){
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Selecione a opção: ");
+		System.out.println("1. Cadastrar Usuario");
+		System.out.println("2. Realizar Emprestimo");
+		System.out.println("3. Realizar Devolucao");
+		System.out.println("4. Cadastrar Titulo");
+		System.out.println("5. Incluir unidade em Titulo");
+		int op = scan.nextInt();
+		
+		switch(op){
+			
+		}
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		BookCtrl bookctrl = new BookCtrl();
+		
+		menu();
+		
+
+	}
+
+}

@@ -1,0 +1,69 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.BookCtrl;
+import controller.LoanCtrl;
+import controller.UserCtrl;
+
+public class Main {
+
+	public static void menu(){
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Selecione a opção: ");
+		System.out.println("1. Cadastrar Usuario");
+		System.out.println("2. Realizar Emprestimo");
+		System.out.println("3. Realizar Devolucao");
+		System.out.println("4. Cadastrar Titulo");
+		System.out.println("5. Incluir unidade em Titulo");
+		int op = scan.nextInt();
+		
+		switch(op){
+			case 1: addUser(); break;
+			case 2: newLoan(); break;
+			case 3: returnLoan(); break;
+			case 4: addTitle(); break;
+			case 5: addBookInTitle(); break;
+			default: menu();
+		}
+	}
+	private static void newLoan() {
+		LoanCtrl ctrl = new LoanCtrl();
+		Scanner scan = new Scanner(System.in);		
+		
+		System.out.println("Book id: ");
+		String name = scan.next();
+		System.out.println("Registro: ");
+		String rb = scan.next();
+		
+		ctrl.makeLoan(rb, name);
+		
+	}
+	private static void addUser() {
+		UserCtrl ctrl = new UserCtrl();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("\n\nNome: ");
+		String name = scan.next();
+		System.out.println("Registro: ");
+		String rb = scan.next();
+		System.out.println("Email: ");
+		String email = scan.next();
+		
+		ctrl.createUser(name, rb, email);
+		System.out.println("Sucesso!!");
+		menu();
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		BookCtrl bookctrl = new BookCtrl();
+		
+		menu();
+		
+
+	}
+
+}

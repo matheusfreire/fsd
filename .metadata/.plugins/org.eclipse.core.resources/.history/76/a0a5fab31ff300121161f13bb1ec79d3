@@ -1,0 +1,66 @@
+package usermanager;
+
+public class ApplicationProxy implements usermanager.Application_PortType {
+  private String _endpoint = null;
+  private usermanager.Application_PortType application_PortType = null;
+  
+  public ApplicationProxy() {
+    _initApplicationProxy();
+  }
+  
+  public ApplicationProxy(String endpoint) {
+    _endpoint = endpoint;
+    _initApplicationProxy();
+  }
+  
+  private void _initApplicationProxy() {
+    try {
+      application_PortType = (new usermanager.Application_ServiceLocator()).getApplication();
+      if (application_PortType != null) {
+        if (_endpoint != null)
+          ((javax.xml.rpc.Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+        else
+          _endpoint = (String)((javax.xml.rpc.Stub)application_PortType)._getProperty("javax.xml.rpc.service.endpoint.address");
+      }
+      
+    }
+    catch (javax.xml.rpc.ServiceException serviceException) {}
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (application_PortType != null)
+      ((javax.xml.rpc.Stub)application_PortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public usermanager.Application_PortType getApplication_PortType() {
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType;
+  }
+  
+  public java.math.BigInteger add_user(loan.services.User user) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.add_user(user);
+  }
+  
+  public java.math.BigInteger make_a_loan(java.math.BigInteger book_id, java.math.BigInteger user_rb) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.make_a_loan(book_id, user_rb);
+  }
+  
+  public java.math.BigInteger return_a_loan(java.math.BigInteger book_id) throws java.rmi.RemoteException{
+    if (application_PortType == null)
+      _initApplicationProxy();
+    return application_PortType.return_a_loan(book_id);
+  }
+  
+  
+}

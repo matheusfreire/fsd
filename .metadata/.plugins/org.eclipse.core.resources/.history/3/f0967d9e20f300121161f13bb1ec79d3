@@ -1,0 +1,9 @@
+package controller;
+
+public class LoginCtrl {
+
+	public boolean login(String login, String senha) {
+		return false;
+	}
+
+}

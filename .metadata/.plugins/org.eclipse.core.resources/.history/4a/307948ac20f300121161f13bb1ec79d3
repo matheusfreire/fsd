@@ -1,0 +1,15 @@
+package controller;
+
+import login_pkg.Application_PortType;
+import login_pkg.Application_Service;
+
+public class LoginCtrl {
+
+	Application_Service service;
+	Application_PortType app;
+	
+	public boolean login(String login, String senha) {
+		return false;
+	}
+
+}

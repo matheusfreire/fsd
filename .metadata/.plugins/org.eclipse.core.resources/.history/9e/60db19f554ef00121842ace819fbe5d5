@@ -1,0 +1,31 @@
+package controller;
+
+import java.math.BigInteger;
+
+import javax.xml.rpc.ServiceException;
+
+import Description.services.Book;
+import Description.services.Description;
+import loan.Application_PortType;
+import loan.Application_Service;
+import loan.Application_ServiceLocator;
+import loan.services.User;
+
+public class TestUserManager {
+
+	public static void main(String[] args) throws ServiceException {
+		BigInteger isbn = new BigInteger("2");
+		BigInteger big = new BigInteger("1");
+		Application_Service service = new Application_ServiceLocator();
+		Application_PortType app = service.getApplication();
+		
+		User user = new User("Arthur", big, "arthurmde");
+		Description d = new Description(isbn, "Design", "GoF");
+		Book book = new Book(true, d, big);
+		
+		System.out.println(app.make_a_loan(book, user));
+		
+
+	}
+
+}

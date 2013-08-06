@@ -1,0 +1,21 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.BookCtrl;
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		BookCtrl bookctrl = new BookCtrl();
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println();
+
+	}
+
+}

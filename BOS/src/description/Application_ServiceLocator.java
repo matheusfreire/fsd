@@ -7,7 +7,7 @@
 
 package description;
 
-public class Application_ServiceLocator extends org.apache.axis.client.Service implements description.Application_Service {
+public class Application_ServiceLocator extends org.apache.axis.client.Service implements Application_Service {
 
     public Application_ServiceLocator() {
     }
@@ -22,7 +22,7 @@ public class Application_ServiceLocator extends org.apache.axis.client.Service i
     }
 
     // Use to get a proxy class for Application
-    private java.lang.String Application_address = "http://0.0.0.0:1234/?wsdl";
+    private java.lang.String Application_address = "http://127.0.0.1:1234/?wsdl";
 
     public java.lang.String getApplicationAddress() {
         return Application_address;

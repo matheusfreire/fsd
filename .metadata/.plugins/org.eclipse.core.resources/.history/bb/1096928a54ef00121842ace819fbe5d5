@@ -1,0 +1,17 @@
+package controller;
+
+import javax.xml.rpc.ServiceException;
+
+import loan.Application_PortType;
+import loan.Application_Service;
+import loan.Application_ServiceLocator;
+
+public class TestUserManager {
+
+	public static void main(String[] args) throws ServiceException {
+		Application_Service service = new Application_ServiceLocator();
+		Application_PortType app = service.getApplication();
+
+	}
+
+}

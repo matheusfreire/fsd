@@ -1,0 +1,29 @@
+package controller;
+
+import java.math.BigInteger;
+import java.rmi.RemoteException;
+
+import javax.xml.rpc.ServiceException;
+
+import Description.services.Description;
+import description.Application_PortType;
+import description.Application_Service;
+import description.Application_ServiceLocator;
+
+public class Test {
+
+	public static void main(String[] args) throws ServiceException, RemoteException {
+		//BigInteger isbn = new BigInteger("2");
+		Application_Service service = new Application_ServiceLocator();
+		Application_PortType app = service.getApplication();
+		
+		Description description = app.get_description_by_name("UML");
+		
+		
+		Description newDescription = new Description("As", "Design", "GoF");
+	//	System.out.println(app.add_description(newDescription));
+		
+		System.out.println(description.getAuthor());
+	}
+
+}

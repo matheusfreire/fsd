@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="tns.Application_ServiceLocator"/>
+<fullyQualifiedTypeName name="tns.Application_Service"/>
+<fullyQualifiedTypeName name="tns.Application_PortType"/>
+<fullyQualifiedTypeName name="controller.Test"/>
+<fullyQualifiedTypeName name="model.Description"/>
+<fullyQualifiedTypeName name="model.Descriptions"/>
+<fullyQualifiedTypeName name="usermanager.Application_Service"/>
+<fullyQualifiedTypeName name="usermanager.Application_ServiceLocator"/>
+<fullyQualifiedTypeName name="usermanager.Application_PortType"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="loan.services.User"/>
+<fullyQualifiedTypeName name="Description.services.Description"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="Description.services.Book"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="controller.LoanCtrl"/>
+<fullyQualifiedTypeName name="controller.UserCtrl"/>
+<fullyQualifiedTypeName name="controller.BookCtrl"/>
+<fullyQualifiedTypeName name="login_pkg.Application_ServiceLocator"/>
+</qualifiedTypeNameHistroy>

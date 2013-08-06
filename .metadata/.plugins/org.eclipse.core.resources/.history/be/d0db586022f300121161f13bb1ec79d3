@@ -1,0 +1,137 @@
+package view;
+
+import java.util.Scanner;
+
+import controller.BookCtrl;
+import controller.LoanCtrl;
+import controller.LoginCtrl;
+import controller.UserCtrl;
+
+public class Main {
+
+	public static void menu(){
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Selecione a opção: ");
+		System.out.println("1. Cadastrar Usuario");
+		System.out.println("2. Realizar Emprestimo");
+		System.out.println("3. Realizar Devolucao");
+		System.out.println("4. Cadastrar Titulo");
+		System.out.println("5. Incluir unidade em Titulo");
+		int op = scan.nextInt();
+		
+		switch(op){
+			case 1: addUser(); break;
+			case 2: newLoan(); break;
+			case 3: returnLoan(); break;
+			case 4: addTitle(); break;
+			case 5: addBookInTitle(); break;
+			default: menu();
+		}
+	}
+	
+	private static void addBookInTitle() {
+		BookCtrl ctrl = new BookCtrl();
+		Scanner scan = new Scanner(System.in);		
+		
+		System.out.println("ISBN: ");
+		String isbn = scan.next();
+		System.out.println("ID: ");
+		int book_id = scan.nextInt();
+
+		ctrl.addABookToTitle(book_id, isbn);
+		menu();
+	}
+
+	private static void addTitle() {
+		BookCtrl ctrl = new BookCtrl();
+		Scanner scan = new Scanner(System.in);		
+		
+		System.out.println("ISBN: ");
+		String isbn = scan.next();
+		System.out.println("name: ");
+		String name = scan.next();
+		System.out.println("author: ");
+		String author = scan.next();
+		
+		ctrl.addTitle(isbn, name, author);
+		menu();
+	}
+
+	private static void returnLoan() {
+		LoanCtrl ctrl = new LoanCtrl();
+		Scanner scan = new Scanner(System.in);		
+		
+		System.out.println("Book id: ");
+		String id = scan.next();
+		
+		if(ctrl.returnLoan(id))
+			System.out.println("Devolucao realizar");
+		else
+			System.out.println("Nao pode ser devolvido");
+	}
+
+	private static void newLoan() {
+		LoanCtrl ctrl = new LoanCtrl();
+		Scanner scan = new Scanner(System.in);		
+		
+		System.out.println("Book id: ");
+		String id = scan.next();
+		System.out.println("Registro: ");
+		String rb = scan.next();
+		
+		if(ctrl.makeLoan(rb, id))
+			System.out.println("Emprestimo realizado com sucesso");
+		else
+			System.out.println("Emprestimo nao pode ser realizado");
+	
+		menu();
+		
+	}
+	
+	private static void addUser() {
+		UserCtrl ctrl = new UserCtrl();
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("\n\nNome: ");
+		String name = scan.next();
+		System.out.println("Registro: ");
+		String rb = scan.next();
+		System.out.println("Email: ");
+		String email = scan.next();
+		
+		ctrl.createUser(name, rb, email);
+		System.out.println("Sucesso!!");
+		menu();
+	}
+	
+	private static void login() {
+		Scanner scan = new Scanner(System.in);
+		LoginCtrl ctrl = new LoginCtrl();
+		String login;
+		String senha;
+		boolean op = true;
+		
+		do
+		{
+			System.out.println("\n\nLogin: ");
+			login = scan.next();
+			System.out.println("\nSenha: ");
+			senha = scan.next();
+		}while(ctrl.login(login, senha) == false);
+	}
+	
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		BookCtrl bookctrl = new BookCtrl();
+		
+		login();
+
+	}
+
+	
+
+}

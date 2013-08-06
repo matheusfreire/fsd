@@ -83,12 +83,14 @@ class DescriptionDAOService(DefinitionBase):
 		temp_book.status = book.status
 
 		temp_book.save()
+		return 0
 
-def main():
+def main(ip):
     from wsgiref.simple_server import make_server
     soap_application = soaplib.core.Application([DescriptionDAOService], 'description')
     wsgi_application = wsgi.Application(soap_application)
-    server = make_server('192.168.254.5', 1234, wsgi_application)
+    server = make_server(ip, 1234, wsgi_application)
+    print "Setando servico Description"
     server.serve_forever()
     
 

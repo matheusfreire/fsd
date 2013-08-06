@@ -1,0 +1,25 @@
+package controller;
+
+import javax.xml.rpc.ServiceException;
+
+import usermanager.Application_PortType;
+import usermanager.Application_Service;
+import usermanager.Application_ServiceLocator;
+
+public class LoanCtrl {
+	Application_Service service;
+	Application_PortType app;
+	
+	public LoanCtrl(){
+		this.service = new Application_ServiceLocator();
+		try {
+			this.app = service.getApplication();
+		} catch (ServiceException e) {
+			System.out.println("Erro ao criar serviço: " + e.getMessage());
+		}
+	}
+	
+	public boolean makeLoan(){
+		
+	}
+}

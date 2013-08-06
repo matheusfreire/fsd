@@ -1,0 +1,53 @@
+package controller;
+
+import java.math.BigInteger;
+import java.rmi.RemoteException;
+import java.util.Date;
+
+import javax.xml.rpc.ServiceException;
+
+import description.Application_PortType;
+import description.Application_Service;
+import description.Application_ServiceLocator;
+import Description.services.Book;
+import Description.services.Description;
+
+public class BookCtrl {
+
+	Application_Service service;
+	Application_PortType app;
+	
+	public BookCtrl(){
+		this.service = new Application_ServiceLocator();
+		try {
+			this.app = service.getApplication();
+		} catch (ServiceException e) {
+			System.out.println("Erro ao criar serviço: " + e.getMessage());
+		}
+	}
+	
+	public void addTitle(String isbn, String name, String author){
+		BigInteger id = new BigInteger(isbn);
+		Description description = new Description(id, name, author);
+		
+		try {
+			app.add_description(description);
+			
+		} catch (RemoteException e) {
+			System.out.println("Erro no Provedor de Serviço: " + e.getMessage());
+		}
+	}
+	
+	public void addABookToTitle(String isbn, String name, String author){
+		BigInteger id = new BigInteger(isbn);
+		Description description = new Description(id, name, author);
+		
+		try {
+			app.add_description(description);
+			
+		} catch (RemoteException e) {
+			System.out.println("Erro no Provedor de Serviço: " + e.getMessage());
+		}
+	}
+	
+}

@@ -1,0 +1,21 @@
+package controller;
+
+import usermanager.Application_PortType;
+import usermanager.Application_Service;
+import usermanager.Application_ServiceLocator;
+import model.User;
+
+public class UserCtrl {
+	Application_Service service;
+	Application_PortType app;
+	
+	public UserCtrl(){
+		Application_Service service = new Application_ServiceLocator();
+		Application_PortType app = service.getApplication();
+	}
+
+	public void createUser(String name, String rb, String email){
+		
+	}
+	
+}

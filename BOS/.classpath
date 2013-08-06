@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="/home/arthur/javamail1_4_7.zip"/>
 	<classpathentry kind="lib" path="/home/arthur/jaf-1.1.1/activation.jar"/>
 	<classpathentry kind="lib" path="/home/arthur/javamail-1.4.7/mail.jar"/>
+	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
